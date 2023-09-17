@@ -1,0 +1,211 @@
+@import '../base/colors';
+@import '../utils/mixins';
+@import '../utils/placeholders';
+
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+
+  position: fixed;
+  top: 0;
+
+  opacity: 1;
+
+  background-color: rgba(0, 0, 0, 0.2);
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background-color: map-get($map: $main-colors, $key: 'primary-white');
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  width: 528px;
+
+  &__container {
+    padding: 40px;
+  }
+
+  &__title {
+    margin-bottom: 12px;
+    text-align: center;
+
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.14;
+    letter-spacing: 0.6px;
+  }
+
+  &__close {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    cursor: pointer;
+    right: 8px;
+    top: 8px;
+
+    width: 30px;
+    height: 30px;
+
+    background-color: map-get($map: $main-colors, $key: 'primary-white');
+    fill: map-get($map: $main-colors, $key: 'logo-dark');
+    border: 1px solid map-get($map: $main-colors, $key: 'btn-shadow');
+    border-radius: 50%;
+
+    transition: fill 250ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  }
+
+  &__close:hover {
+    fill: map-get($map: $main-colors, $key: 'primary-blue');
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 10px;
+
+    color: map-get($map: $main-colors, $key: 'contact-color');
+    font-family: Roboto;
+    font-size: 12px;
+    letter-spacing: 0.12px;
+
+    transition: fill 250ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  }
+
+  &__field {
+    margin-bottom: 4px;
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__input {
+    width: 100%;
+    padding-top: 11px;
+    padding-bottom: 11px;
+
+    padding-left: 42px;
+
+    border-radius: 4px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+
+    outline: none;
+  }
+
+  &__item:focus-within &__field-icon {
+    fill: map-get($map: $main-colors, $key: 'primary-blue');
+  }
+
+  &__item:focus-within &__input {
+    border-color: map-get($map: $main-colors, $key: 'primary-blue');
+  }
+
+  &__field-icon {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+    left: 12px;
+
+    width: 18px;
+    height: 18px;
+
+    transition: fill 250ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  }
+
+  &__textarea {
+    resize: none;
+    height: 100%;
+
+    padding: 12px 16px;
+    margin-bottom: 20px;
+
+    border-radius: 4px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+
+    outline: none;
+  }
+
+  &__item--resize {
+    height: 120px;
+  }
+
+  &__item--check {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 30px;
+
+    cursor: pointer;
+  }
+
+  &__checkbox {
+    appearance: none;
+    cursor: pointer;
+  }
+
+  &__custom-checkbox {
+    display: inline-block;
+    box-sizing: content-box;
+
+    margin-right: 9px;
+
+    width: 16px;
+    height: 15px;
+    border: 2px solid map-get($map: $main-colors, $key: 'logo-dark');
+    border-radius: 2px;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__checkbox:checked + &__custom-checkbox {
+    border-color: map-get($map: $main-colors, $key: 'primary-blue');
+    background-color: map-get($map: $main-colors, $key: 'primary-blue');
+    background-image: url('.././images/icons/icon-check.svg');
+    background-position: center;
+  }
+
+  &__policy {
+    text-decoration: underline;
+    color: map-get($map: $main-colors, $key: 'primary-blue');
+  }
+
+  &__btn {
+    @extend %button;
+    align-self: center;
+
+    padding: 10px 55px;
+
+    color: map-get($map: $main-colors, $key: 'primary-white');
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.87; /* 187.5% */
+    letter-spacing: 0.96px;
+  }
+
+  &__btn:hover {
+    background-color: map-get($map: $main-colors, $key: 'hover-blue');
+    box-shadow: 0px 4px 4px 0px map-get($map: $main-colors, $key: 'btn-shadow');
+  }
+}

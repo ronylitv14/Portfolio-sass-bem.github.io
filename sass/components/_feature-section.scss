@@ -1,0 +1,57 @@
+@import '../base/colors';
+
+.section {
+  padding: 92px 0;
+
+  &__title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.14;
+    letter-spacing: 1.08px;
+
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  &.members {
+    background-color: map-get($map: $main-colors, $key: 'icon-bg-color');
+  }
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+
+  &__item {
+    min-width: calc((100% - 90px) / 4);
+  }
+
+  &__item:not(:first-child) {
+    margin-left: 30px;
+  }
+
+  &__thumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px 100px;
+    margin-bottom: 30px;
+    background-color: map-get($map: $main-colors, $key: 'icon-bg-color');
+    border-radius: 4px;
+  }
+
+  &__title {
+    margin-bottom: 10px;
+
+    font-weight: 700;
+    line-height: 1.14;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    color: map-get($map: $main-colors, $key: 'contact-color');
+    line-height: 1.71; /* 171.429% */
+  }
+}

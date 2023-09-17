@@ -1,0 +1,13 @@
+@import '../base/colors';
+
+%link {
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: 0.28px;
+}
+
+%button {
+  border-radius: 4px;
+  background: map-get($map: $main-colors, $key: 'primary-blue');
+  cursor: pointer;
+}
